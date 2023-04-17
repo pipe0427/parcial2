@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.parcial2.parcial2.entity.Customer;
+import com.parcial2.parcial2.repository.CustomerRepository;
 import com.parcial2.parcial2.service.CustomerService;
 
 @Controller
@@ -17,11 +18,14 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
+
     @GetMapping({"/customer","/"})
     public String listCustomer(Model model){
         model.addAttribute("customers", customerService.listAllcustomers());
         return "customer";
     }
+
+    
 
     @GetMapping({"/customer/new"})
     public String showFormOfRegisterCustomer (Model model){
@@ -57,9 +61,12 @@ public class CustomerController {
     }
     @GetMapping("/customer/{id}")
     public String deleteCustomer(@PathVariable Long id){
-        customerService.deleteCustomer(id);
+        if(customerService.getCustomerForId(id).getOrders().size() == 0){
+            customerService.deleteCustomer(id);
+            return "redirect:/customer";
+        }
         return "redirect:/customer";
+        
     }
-
 
 }

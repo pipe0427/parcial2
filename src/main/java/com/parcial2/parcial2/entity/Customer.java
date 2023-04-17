@@ -110,5 +110,14 @@ public class Customer {
         this.category = category;
     }
 
+    public List<Order1> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order1> orders) {
+        this.orders = orders;
+    }
+    
+
     
 }

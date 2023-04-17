@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.parcial2.parcial2.entity.Customer;
-import com.parcial2.parcial2.repositorie.CustomerRepository;
+import com.parcial2.parcial2.repository.CustomerRepository;
 
 @Service
 public class CustomerServiceImpl implements CustomerService  {

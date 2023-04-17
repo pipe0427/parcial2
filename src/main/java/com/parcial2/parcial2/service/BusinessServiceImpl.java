@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.parcial2.parcial2.entity.Business;
-import com.parcial2.parcial2.repositorie.BusinessRepository;
+import com.parcial2.parcial2.repository.BusinessRepository;
 
 @Service
 public class BusinessServiceImpl implements BusinessService{

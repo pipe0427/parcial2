@@ -58,7 +58,10 @@ public class BusinessController {
 
     @GetMapping({"/business/{id}"})
     public String deleteBusiness(@PathVariable Long id){
+        if(businessService.getBusinessById(id).getOrders().size() == 0){
         businessService.deleteBusiness(id);
+        return "redirect:/business";
+        }
         return "redirect:/business";
     }
 }

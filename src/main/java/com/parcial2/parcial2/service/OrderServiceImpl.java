@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.parcial2.parcial2.entity.Order1;
-import com.parcial2.parcial2.repositorie.OrderRepository;
+import com.parcial2.parcial2.repository.OrderRepository;
 
 @Service
 public class OrderServiceImpl implements OrderService{
