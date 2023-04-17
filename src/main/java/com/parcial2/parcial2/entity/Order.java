@@ -18,7 +18,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "order")
 public class Order {
