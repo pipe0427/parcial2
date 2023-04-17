@@ -22,7 +22,6 @@ public class Business {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotEmpty
     private Long id;
 
     @Column(name = "name", nullable = false,length = 100)
@@ -48,8 +47,8 @@ public class Business {
     @Column(name = "comision", nullable = true)
     private Float comision;
 
-     @OneToMany(mappedBy = "business", fetch = FetchType.LAZY)
-     private List<Order> orders;
+    // @OneToMany(mappedBy = "business", fetch = FetchType.LAZY)
+    // private List<Order> orders;
 
     public Business() {
     }
@@ -61,12 +60,12 @@ public class Business {
         this.lastName2 = lastName2;
         this.city = city;
         this.comision = comision;
-         this.orders = new ArrayList<>();
+        // this.orders = new ArrayList<>();
     }
 
-     public void addOrder(Order order){
-         orders.add(order);
-     }
+    // public void addOrder(Order order){
+    //     orders.add(order);
+    // }
 
     public Long getId() {
         return id;
@@ -116,9 +115,9 @@ public class Business {
         this.comision = comision;
     }
 
-     public List<Order> getOrders() {
-         return orders;
-     }
+    // public List<Order> getOrders() {
+    //     return orders;
+    // }
     
     
 }
