@@ -6,7 +6,7 @@ import com.parcial2.parcial2.entity.Business;
 
 public interface BusinessService {
     
-    public List<Business> lisAllBusinesses();
+    public List<Business> listAllBusinesses();
 
     public Business saveBusiness(Business business);
 

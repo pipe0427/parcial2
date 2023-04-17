@@ -9,8 +9,11 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "customer")
@@ -18,12 +21,17 @@ public class Customer {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotEmpty
     private Long id;
 
     @Column(name = "name", nullable = false,length = 100)
+    @NotEmpty
+    @Size(max = 100)
     private String name;
 
     @Column(name = "lastName1", nullable = false,length = 100) 
+    @NotEmpty
+    @Size(max = 100)
     private String lastName1;
 
     @Column(name = "lastName2", nullable = true,length = 100) 
@@ -35,8 +43,8 @@ public class Customer {
     @Column(name = "category", nullable = true,length = 10)
     private int category;
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
-    private List<Order> orders;
+     @OneToMany( fetch = FetchType.LAZY)
+     private List<Order> orders;
 
     public Customer() {
     }
@@ -48,8 +56,13 @@ public class Customer {
         this.lastName2 = lastName2;
         this.city = city;
         this.category = category;
-        this.orders = new ArrayList<>();
+         this.orders = new ArrayList<>();
     }
+
+     public void addOrder(Order order) {
+         orders.add(order);
+     }
+    
 
     public Long getId() {
         return id;

@@ -13,6 +13,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "business")
@@ -20,27 +22,34 @@ public class Business {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotEmpty
     private Long id;
 
     @Column(name = "name", nullable = false,length = 100)
+    @NotEmpty
+    @Size(max = 100)
     private String name;
 
 
     @Column(name = "lastName", nullable = false,length = 100)
+    @NotEmpty
+    @Size(max = 100)
     private String lastName1;
 
 
     @Column(name = "lastName2", nullable = true,length = 100)
+    @Size(max = 100)
     private String lastName2;
 
     @Column(name = "city", nullable = true,length = 100)
+    @Size(max = 100)
     private String city;
 
     @Column(name = "comision", nullable = true)
     private Float comision;
 
-    @OneToMany(mappedBy = "business", fetch = FetchType.LAZY)
-    private List<Order> orders;
+     @OneToMany(mappedBy = "business", fetch = FetchType.LAZY)
+     private List<Order> orders;
 
     public Business() {
     }
@@ -52,12 +61,12 @@ public class Business {
         this.lastName2 = lastName2;
         this.city = city;
         this.comision = comision;
-        this.orders = new ArrayList<>();
+         this.orders = new ArrayList<>();
     }
 
-    public void addOrder(Order order){
-        orders.add(order);
-    }
+     public void addOrder(Order order){
+         orders.add(order);
+     }
 
     public Long getId() {
         return id;
@@ -107,9 +116,9 @@ public class Business {
         this.comision = comision;
     }
 
-    public List<Order> getOrders() {
-        return orders;
-    }
+     public List<Order> getOrders() {
+         return orders;
+     }
     
     
 }

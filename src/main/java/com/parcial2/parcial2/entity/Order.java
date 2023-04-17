@@ -1,7 +1,7 @@
 package com.parcial2.parcial2.entity;
 
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -13,7 +13,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "order")
@@ -24,29 +28,34 @@ public class Order {
     private Long id;
 
     @Column(name = "amount",nullable = false)
-    private Double cantidad;
+    private Double amount;
 
+    @NotNull
     @Column(name = "date",nullable = true)
+    @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+     @ManyToOne(fetch = FetchType.LAZY)
+     private Customer customer;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "business_id")
-    private Business business;
+     @ManyToOne(fetch = FetchType.LAZY)
+     private Business business;
 
     public Order() {
     }
 
-    public Order(Long id, Double cantidad, Date date, Customer customer, Business business) {
+    public Order(Long id, Double amount, Date date, Customer customer, Business business) {
         this.id = id;
-        this.cantidad = cantidad;
+        this.amount = amount;
         this.date = date;
-        this.customer = customer;
-        this.business = business;
+         this.customer = customer;
+         this.business = business;
+    }
+
+    @PrePersist
+    public void prePersist(){
+        this.date = new Date();
     }
 
     public Long getId() {
@@ -57,12 +66,12 @@ public class Order {
         this.id = id;
     }
 
-    public Double getCantidad() {
-        return cantidad;
+    public Double getAmount() {
+        return amount;
     }
 
-    public void setCantidad(Double cantidad) {
-        this.cantidad = cantidad;
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
 
     public Date getDate() {
@@ -73,21 +82,22 @@ public class Order {
         this.date = date;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
+     public Customer getCustomer() {
+         return customer;
+     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+     public void setCustomer(Customer customer) {
+         this.customer = customer;
+     }
 
-    public Business getBusiness() {
-        return business;
-    }
+     public Business getBusiness() {
+         return business;
+     }
 
-    public void setBusiness(Business business) {
-        this.business = business;
-    }
+     public void setBusiness(Business business) {
+         this.business = business;
+     }
+    
 
     
 }
