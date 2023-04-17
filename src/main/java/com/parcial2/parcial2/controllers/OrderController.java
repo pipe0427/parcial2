@@ -44,6 +44,7 @@ public class OrderController {
 
     @PostMapping("/order")
     public String saveOrder(@ModelAttribute("order") Order1 order){
+        orderService.saveOrder(order);
         return "redirect:/order";
     }
 

@@ -3,10 +3,12 @@ package com.parcial2.parcial2.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.parcial2.parcial2.entity.Order1;
 import com.parcial2.parcial2.repositorie.OrderRepository;
 
+@Service
 public class OrderServiceImpl implements OrderService{
     @Autowired
     private OrderRepository orderRepository;

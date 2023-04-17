@@ -41,8 +41,8 @@ public class Customer {
     @Column(name = "category", nullable = true,length = 10)
     private int category;
 
-    // @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
-    // private List<Order> orders;
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    private List<Order1> orders;
 
     public Customer() {
     }
@@ -54,12 +54,12 @@ public class Customer {
         this.lastName2 = lastName2;
         this.city = city;
         this.category = category;
-        // this.orders = new ArrayList<>();
+        this.orders = new ArrayList<>();
     }
 
-    //  public void addOrder(Order order) {
-    //     orders.add(order);
-    //  }
+     public void addOrder(Order1 order) {
+       orders.add(order);
+    }
     
 
     public Long getId() {

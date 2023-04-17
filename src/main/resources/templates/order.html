@@ -52,8 +52,8 @@
         <td th:text="${order.id}">Id</td>
         <td th:text="${order.amount}">Amount</td>
         <td th:text="${order.date}">Date</td>
-        <td th:text="${order.customer}">Customer</td>
-        <td th:text="${order.business}">Business</td>
+        <td th:text="${order.customer.name}">Customer</td>
+        <td th:text="${order.business.name}">Business</td>
         <td>
           <a th:href="@{/order/edit/{id}(id=${order.id})}" class="btn btn-info">Edit</a>
           <a th:href="@{/order/{id}(id=${order.id})}" class="btn btn-danger">Delete</a>
