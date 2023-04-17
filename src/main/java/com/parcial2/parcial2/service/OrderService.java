@@ -8,11 +8,11 @@ public interface OrderService {
     
     public List<Order1> listAllOrders();
 
-    public Order1 saveOrder1(Order1 order);
+    public Order1 saveOrder(Order1 order);
     
     public Order1 getOrderById(Long id);
 
-    public Order1 updateOrder1(Order1 order);
+    public Order1 updateOrder(Order1 order);
 
-    public void deleteOrder1(Long id);
+    public void deleteOrder(Long id);
 }
