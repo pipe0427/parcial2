@@ -27,7 +27,7 @@ public class Customer {
     @Column(name = "city", nullable = true,length = 100)
     private String city;
 
-    @Column(name = "category", nullable = true)
+    @Column(name = "category", nullable = true,length = 10)
     private int category;
 
     public Customer() {

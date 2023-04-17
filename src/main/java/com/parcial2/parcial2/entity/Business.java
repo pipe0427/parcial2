@@ -36,4 +36,75 @@ public class Business {
     @OneToMany
     private Long id_comercial;
 
+    public Business() {
+    }
+
+    public Business(Long id, String name, String lastName1, String lastName2, String city, Float comision,
+            Long id_comercial) {
+        this.id = id;
+        this.name = name;
+        this.lastName1 = lastName1;
+        this.lastName2 = lastName2;
+        this.city = city;
+        this.comision = comision;
+        this.id_comercial = id_comercial;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastName1() {
+        return lastName1;
+    }
+
+    public void setLastName1(String lastName1) {
+        this.lastName1 = lastName1;
+    }
+
+    public String getLastName2() {
+        return lastName2;
+    }
+
+    public void setLastName2(String lastName2) {
+        this.lastName2 = lastName2;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Float getComision() {
+        return comision;
+    }
+
+    public void setComision(Float comision) {
+        this.comision = comision;
+    }
+
+    public Long getId_comercial() {
+        return id_comercial;
+    }
+
+    public void setId_comercial(Long id_comercial) {
+        this.id_comercial = id_comercial;
+    }
+
+    
 }
