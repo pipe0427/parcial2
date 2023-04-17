@@ -1,10 +1,15 @@
 package com.parcial2.parcial2.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,6 +35,9 @@ public class Customer {
     @Column(name = "category", nullable = true,length = 10)
     private int category;
 
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    private List<Order> orders;
+
     public Customer() {
     }
 
@@ -40,6 +48,7 @@ public class Customer {
         this.lastName2 = lastName2;
         this.city = city;
         this.category = category;
+        this.orders = new ArrayList<>();
     }
 
     public Long getId() {
@@ -89,8 +98,6 @@ public class Customer {
     public void setCategory(int category) {
         this.category = category;
     }
-
-    
 
     
 }

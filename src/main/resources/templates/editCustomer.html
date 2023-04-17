@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit customer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#"> Control of customers</a>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" th:href="@{/customer}">Control of customers</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h1 class="text-center">Edit of customers</h1>
+                <div class="card-body">
+                    <form th:action="@{/customer/{id}(id=${customer.id})}" th:object="${customer}" method="POST">
+                        
+                      <div class="form-group">
+                            <label>Name : </label>
+                            <input type="text" name="name" th:field="*{name}" class="form-control"placeholder="Write your name : " required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>First last name : </label>
+                            <input type="text" name="lastName1" th:field="*{lastName1}" class="form-control"placeholder="write your first last name : " required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Second last name : </label>
+                            <input type="text" name="lastName2" th:field="*{lastName2}" class="form-control"placeholder="Write your second last name : " required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>City : </label>
+                            <input type="text" name="city" th:field="*{city}" class="form-control"placeholder="Write your city : " required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Category : </label>
+                            <input type="text" name="category" th:field="*{category}" class="form-control"placeholder="Write your category : " required>
+                        </div>
+
+                        <div class="box-footer">
+                            <button class="btn btn-success">save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

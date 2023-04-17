@@ -31,13 +31,12 @@ public class CustomerServiceImpl implements CustomerService  {
 
     @Override
     public Customer updateCustomer(Customer customer) {
-        return customerRepository.save(customer)
+        return customerRepository.save(customer);
     }
 
     @Override
     public void deleteCustomer(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteCustomer'");
+        customerRepository.deleteById(id);
     }
     
 

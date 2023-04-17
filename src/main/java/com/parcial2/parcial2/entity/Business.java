@@ -1,7 +1,13 @@
 package com.parcial2.parcial2.entity;
 
+
+
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -33,21 +39,24 @@ public class Business {
     @Column(name = "comision", nullable = true)
     private Float comision;
 
-    @OneToMany
-    private Long id_comercial;
+    @OneToMany(mappedBy = "business", fetch = FetchType.LAZY)
+    private List<Order> orders;
 
     public Business() {
     }
 
-    public Business(Long id, String name, String lastName1, String lastName2, String city, Float comision,
-            Long id_comercial) {
+    public Business(Long id, String name, String lastName1, String lastName2, String city, Float comision) {
         this.id = id;
         this.name = name;
         this.lastName1 = lastName1;
         this.lastName2 = lastName2;
         this.city = city;
         this.comision = comision;
-        this.id_comercial = id_comercial;
+        this.orders = new ArrayList<>();
+    }
+
+    public void addOrder(Order order){
+        orders.add(order);
     }
 
     public Long getId() {
@@ -98,13 +107,9 @@ public class Business {
         this.comision = comision;
     }
 
-    public Long getId_comercial() {
-        return id_comercial;
+    public List<Order> getOrders() {
+        return orders;
     }
-
-    public void setId_comercial(Long id_comercial) {
-        this.id_comercial = id_comercial;
-    }
-
+    
     
 }
