@@ -68,7 +68,7 @@ public class CustomerController {
         
     }
 
-    @GetMapping("/customer/order")
+    @GetMapping("/customerOrder")
     public String showOrdersCustomers(Model model){
         model.addAttribute("orderCustomer", customerService.customerWithOrders());
         return "customerOrder";

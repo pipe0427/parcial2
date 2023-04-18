@@ -46,8 +46,12 @@ public class OrderController {
 
     @PostMapping("/order")
     public String saveOrder(@ModelAttribute("order") Order1 order){
+        if(order.getBusiness()==null || order.getCustomer().getId() == null){
+            return "redirect:/order/new";
+        }
         orderService.saveOrder(order);
         return "redirect:/order";
+        
     }
 
     @GetMapping("/order/edit/{id}")
