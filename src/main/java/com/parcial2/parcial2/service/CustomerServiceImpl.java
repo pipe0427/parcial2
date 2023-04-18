@@ -4,9 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.parcial2.parcial2.entity.Customer;
 import com.parcial2.parcial2.repository.CustomerRepository;
+
+
 
 @Service
 public class CustomerServiceImpl implements CustomerService  {
@@ -37,6 +40,12 @@ public class CustomerServiceImpl implements CustomerService  {
     @Override
     public void deleteCustomer(Long id) {
         customerRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Customer> customerWithOrders() {
+        return customerRepository.customerWithOrders();
     }
     
 

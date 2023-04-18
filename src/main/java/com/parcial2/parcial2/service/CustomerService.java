@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.parcial2.parcial2.entity.Customer;
 
+import jakarta.transaction.Transactional;
+
 public interface CustomerService {
 
     public List<Customer> listAllcustomers();
@@ -15,4 +17,7 @@ public interface CustomerService {
     public Customer updateCustomer(Customer customer);
 
     public void deleteCustomer(Long id);
+
+    @Transactional
+    public List<Customer> customerWithOrders();
 }

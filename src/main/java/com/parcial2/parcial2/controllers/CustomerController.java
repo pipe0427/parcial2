@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.parcial2.parcial2.entity.Customer;
-import com.parcial2.parcial2.repository.CustomerRepository;
 import com.parcial2.parcial2.service.CustomerService;
 
 @Controller
@@ -67,6 +66,12 @@ public class CustomerController {
         }
         return "redirect:/customer";
         
+    }
+
+    @GetMapping("/customer/order")
+    public String showOrdersCustomers(Model model){
+        model.addAttribute("orderCustomer", customerService.customerWithOrders());
+        return "customerOrder";
     }
 
 }
