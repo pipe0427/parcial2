@@ -16,5 +16,5 @@ public interface CustomerService {
 
     public void deleteCustomer(Long id);
 
-    public List<Customer> customerWithOrders();
+    public List<Object[]> customerWithOrders();
 }

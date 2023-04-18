@@ -11,8 +11,8 @@ import com.parcial2.parcial2.entity.Customer;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer,Long>{
     @Query(
-        value = "select * from customer c left join order1 o on c.id = o.customer_id order by c.last_name1,c.last_name2,c.name asc",
+        value = "select * from customer c left join order1 o on c.id = o.customer_id order by c.last_name1,c.last_name2 asc",
     nativeQuery=true)
-    public  List<Customer> customerWithOrders();
+    public  List<Object[]> customerWithOrders();
 
 }

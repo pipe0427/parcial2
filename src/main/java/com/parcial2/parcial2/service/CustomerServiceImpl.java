@@ -44,7 +44,7 @@ public class CustomerServiceImpl implements CustomerService  {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Customer> customerWithOrders() {
+    public List<Object[]> customerWithOrders() {
         return customerRepository.customerWithOrders();
     }
     

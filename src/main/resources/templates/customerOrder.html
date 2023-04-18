@@ -43,14 +43,14 @@
       </thead>
       <tbody>
         <tr th:each="customerOrder : ${orderCustomer}">
-            <!-- <td th:text="${customerOrder(0)}">First last name</td> 
+            <td th:text="${customerOrder[0]}">First last name</td> 
             <td th:text="${customerOrder[1]}">Second last name</td>
             <td th:text="${customerOrder[2]}">Name</td>
             <td th:text="${customerOrder[3]}">Id of order</td>
             <td th:text="${customerOrder[4]}">Amount</td>
             <td th:text="${customerOrder[5]}">Date</td>
             <td th:text="${customerOrder[6]}">Business</td>
-            <td th:text="${customerOrder[7]}">Customer</td>  -->
+            <td th:text="${customerOrder[7]}">Customer</td> 
         </tr>
       </tbody>
     </table>
